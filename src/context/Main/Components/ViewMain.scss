@@ -1,0 +1,66 @@
+.ViewMain {
+    display: flex;
+    height: 100%;
+
+    .iconDeleteTable {
+        cursor: pointer;
+    }
+
+    .SectionLeft {
+        width: 320px;
+        padding-right: 50px;
+        height: 97%;
+        border-right: 2px solid var(--border-color);
+    }
+
+    .SectionLeft .GroupActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .btn {
+            padding: 0 8px;
+        }
+        .btn-opc {
+            height: 30px;
+            width: 30px;
+            margin-left: auto;
+        }
+    }
+
+    .SectionLeft .DocumentsLoaded {
+        padding: 20px 0;
+        span { font-weight: 500; }
+        .TableCostume { margin-top: 20px; }
+    }
+
+    .SectionLeft .GroupButtonFinal {
+        position: absolute;
+        bottom: 50px;
+
+        button { width: 293px; }
+    }
+
+    .SectionRight {
+        padding-left: 50px;
+        width: calc(100% - 320px);
+    }
+
+    .SectionRight .GroupActions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+
+        .btn {
+            gap: 10px;
+            padding: 0 15px;
+        }
+    }
+
+    .SectionRight .GroupFilters {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+}

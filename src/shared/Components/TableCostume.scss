@@ -1,0 +1,33 @@
+.TableCostume {
+    table {
+        border-collapse: collapse;
+        border: 1px solid var(--secondary-color);
+        width: 100%;
+
+        input[type='checkbox'] {
+            cursor: pointer;
+            background-color: var(--primary-color);
+        }
+    }
+    thead {
+        th {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            // vertical-align: bottom;
+            border-bottom: 2px solid var(--secondary-color)
+        }
+    }
+
+    tbody {
+        tr:hover {
+            transition: 0.25s;
+            background-color: var(--secondary-color);
+        }
+    }
+
+    td, th {
+        padding: .80rem;
+        vertical-align: top;
+        // border-top: 3px solid var(--secondary-color);
+    }
+}

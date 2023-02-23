@@ -1,0 +1,30 @@
+.ViewApp {
+    height: 100%;
+
+    .ViewAppHeader {
+        display: flex;
+        align-items: center;
+        height: 110px;
+        padding: 0 50px;
+        border-bottom: 2px solid var(--border-color);
+
+        .LogoApp {
+            display: flex; 
+            h1 { font-size: 32px; margin-left: 24px; font-weight: 500; } 
+        }
+        .ContactUsApp {
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            gap: 4px;
+            text-align: end;
+
+            span { font-size: 14px; a { color: var(--text-color); text-decoration: auto; } }
+            .title { font-weight: 500; }
+        }
+    }
+    .ViewAppContainer {
+        padding: 30px 50px 0;
+        height: calc(100% - 142px);
+    }
+}
