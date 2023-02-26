@@ -1,0 +1,12 @@
+.RipplesCostume {
+    transition: 0.25s;
+}
+.btn-primary-ripple:hover {
+    box-shadow: 0px 4px 16px rgba(201, 39, 70, 0.2);
+}
+.btn-secondary-ripple:hover {
+    box-shadow: 0px 4px 16px rgba(150, 150, 150, 0.2);
+}
+.btn-third-ripple:hover {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+}

@@ -17,9 +17,9 @@ export const ViewMain = (props: ContainerProps) => {
         <div className="ViewMain">
             <section className="SectionLeft">
                 <div className="GroupActions">
-                    <RipplesCostume><button className="btn btn-primary">Escanear Carpeta</button></RipplesCostume>
-                    <RipplesCostume><button className="btn btn-secondary">Cargar archivos</button></RipplesCostume>
-                    <RipplesCostume><button className="btn btn-secondary btn-opc"> <img src={IconOption} alt="icon-option" /> </button></RipplesCostume>
+                    <RipplesCostume className="btn-primary-ripple"><button className="btn btn-primary">Escanear Carpeta</button></RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Cargar archivos</button></RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple btn-opc"><button className="btn btn-secondary btn-opc"> <img src={IconOption} alt="icon-option" /> </button></RipplesCostume>
                 </div>
                 <div className="DocumentsLoaded">
                     <span>Documentos cargados:</span>
@@ -29,19 +29,20 @@ export const ViewMain = (props: ContainerProps) => {
                     />
                 </div>
                 <div className="GroupButtonFinal">
-                <RipplesCostume>
+                <RipplesCostume className="btn-third-ripple">
                     <button className="btn btn-third">Convertir a XML Y Firmar</button>
                 </RipplesCostume>
                 </div>
             </section>
             <section className="SectionRight">
                 <div className="GroupActions">
-                    <RipplesCostume><button className="btn btn-secondary">Enviar correo <img src={IconMessage} alt="icon-message" /></button></RipplesCostume>
-                    <RipplesCostume><button className="btn btn-secondary">Descargar CDR <img src={IconDownload} alt="icon-download" /></button></RipplesCostume>
-                    <RipplesCostume><button className="btn btn-primary">Envíar a sunat <img src={IconUpload} alt="icon-upload" /></button></RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Enviar correo <img src={IconMessage} alt="icon-message" /></button></RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Descargar CDR <img src={IconDownload} alt="icon-download" /></button></RipplesCostume>
+                    <RipplesCostume className="btn-primary-ripple"><button className="btn btn-primary">Envíar a sunat <img src={IconUpload} alt="icon-upload" /></button></RipplesCostume>
                 </div>
                 <div className="GroupFilters">
                     <InputText
+                        style={{ flex: 1 }}
                         label="Buscar"
                         name="textSearch"
                         onChange={() => {}}

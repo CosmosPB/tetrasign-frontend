@@ -14,7 +14,8 @@
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
             // vertical-align: bottom;
-            border-bottom: 2px solid var(--secondary-color)
+            border-bottom: 2px solid var(--secondary-color);
+            font-weight: 500;
         }
     }
 
@@ -23,11 +24,17 @@
             transition: 0.25s;
             background-color: var(--secondary-color);
         }
+
+        td {
+            font-weight: 400;
+        }
     }
 
     td, th {
         padding: .80rem;
         vertical-align: top;
+        font-size: 12px;
+        line-height: 28px;
         // border-top: 3px solid var(--secondary-color);
     }
 }

@@ -30,7 +30,7 @@
 
     .SectionLeft .DocumentsLoaded {
         padding: 20px 0;
-        span { font-weight: 500; }
+        span { font-weight: 500; font-size: 12px; }
         .TableCostume { margin-top: 20px; }
     }
 
@@ -61,6 +61,6 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        margin: 20px 0;
+        margin: 24px 0;
     }
 }
