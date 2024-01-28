@@ -1,4 +1,4 @@
-import { EntityDocument } from "./EntityDocument";
+import { EntityDocument } from "./Utils"
 
 export interface EntityContent {
     listDocument: EntityDocument[];

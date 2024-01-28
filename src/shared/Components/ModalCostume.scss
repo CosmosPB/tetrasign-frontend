@@ -1,0 +1,74 @@
+.ModalCostume {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 2s;
+    h1, p { margin: 0; }
+
+    .BackgroundModal {
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        cursor: pointer;
+        background-color: rgba(71, 77, 102, 0.49);
+        z-index: 1;
+    }
+
+    .Modal {
+        cursor: default;
+        background-color: white;
+        border-radius: 15px;
+        width: 440px;
+        z-index: 2;
+
+        header {
+            border-bottom: 2px solid rgba(236, 236, 236, 1);
+            justify-content: space-between;
+
+            h1 {
+                color: rgba(37, 39, 40, 1);
+                font-size: 16px;
+            }
+            
+            svg {
+                cursor: pointer;
+            }
+        }
+
+        footer {
+            border-top: 2px solid rgba(236, 236, 236, 1);
+            justify-content: flex-end;
+            gap: 10px;
+
+            button {
+                height: 36px;
+                width: 100px;
+            }
+        }
+
+        header, footer {
+            padding: 0 30px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        };
+
+        section {
+            padding: 20px 30px;
+            line-height: 28px;
+
+            p {
+                color: rgba(37, 39, 40);
+                font-size: 12px;
+            }
+        }
+    }
+}

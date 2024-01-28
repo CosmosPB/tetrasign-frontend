@@ -10,6 +10,7 @@ import { RipplesCostume } from "../../../shared/Components/RipplesCostume";
 
 interface ContainerProps {
     content: EntityContent;
+    openModal: Function;
 }
 
 export const ViewMain = (props: ContainerProps) => {
@@ -38,7 +39,7 @@ export const ViewMain = (props: ContainerProps) => {
                 <div className="GroupActions">
                     <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Enviar correo <img src={IconMessage} alt="icon-message" /></button></RipplesCostume>
                     <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Descargar CDR <img src={IconDownload} alt="icon-download" /></button></RipplesCostume>
-                    <RipplesCostume className="btn-primary-ripple"><button className="btn btn-primary">Envíar a sunat <img src={IconUpload} alt="icon-upload" /></button></RipplesCostume>
+                    <RipplesCostume className="btn-primary-ripple"><button className="btn btn-primary" onClick={() => props.openModal()}>Envíar a sunat <img src={IconUpload} alt="icon-upload" /></button></RipplesCostume>
                 </div>
                 <div className="GroupFilters">
                     <InputText

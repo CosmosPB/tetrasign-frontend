@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { EntityContent, EntityContentInit } from "../Domain/EntityContent"
-import { EntityDocument } from "../Domain/EntityDocument";
+import { EntityConfigModal, EntityConfigModalInit, EntityDocument } from "../Domain/Utils";
 import IconTrash from "../../../assets/icons/icon-trash.svg";
 
 export const Controller = () => {
-    const [content, setContent] = useState<EntityContent>(EntityContentInit)
+    const [content, setContent] = useState<EntityContent>(EntityContentInit);
+    const [configModal, setConfigModal] = useState<EntityConfigModal>(EntityConfigModalInit);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const init = () => {
         setContent({
@@ -45,8 +47,31 @@ export const Controller = () => {
         })
     };
 
+    // Functions Modal
+    const openModal = () => {
+        setConfigModal((prev) => ({ ...prev, show: true }));
+    }
+
+    const closeModal = () => {
+        setConfigModal((prev) => ({ ...prev, show: false }))
+    }
+
+    const onSubmitModal = () => {
+        setLoading(true);
+        setTimeout(() => {
+            closeModal();
+            setLoading(false);
+        }, 3000)
+    }
+
     return ({
         content,
-        init
+        init,
+        loading,
+
+        openModal,
+        closeModal,
+        configModal,
+        onSubmitModal
     })
 }
