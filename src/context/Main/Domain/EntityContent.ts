@@ -5,7 +5,7 @@ export interface EntityContent {
     metadataDocument: {
         key: string;
         label: string;
-        render?: (row: any) => any;
+        render?: (row: any, position: number) => any;
     }[];
     listMain: {
         key: string;

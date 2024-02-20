@@ -6,6 +6,9 @@ interface ContainerProps {
     show: boolean;
     close: Function;
     submit: Function;
+    disabledFooter?: boolean;
+    textButtonSubmit?: string;
+    width?: number;
 }
 
 export const ModalCostume = (props: ContainerProps) => {
@@ -14,7 +17,7 @@ export const ModalCostume = (props: ContainerProps) => {
     return (
         <div className="ModalCostume">
             <div className='BackgroundModal' onClick={() => props.close()}/>
-            <div className="Modal">
+            <div className="Modal" style={props.width ? { width: props.width } : {}}>
                 <header>
                     <h1> { props.title } </h1>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => props.close()}>
@@ -24,10 +27,14 @@ export const ModalCostume = (props: ContainerProps) => {
                 <section>
                     { props.children }
                 </section>
-                <footer>
-                    <button className='btn btn-secondary' onClick={() => props.close()}>Cancelar</button>
-                    <button className='btn btn-primary' onClick={() => props.submit()}>Enviar</button>
-                </footer>
+                {
+                    !props.disabledFooter ?
+                    <footer>
+                        <button className='btn btn-secondary' onClick={() => props.close()}>Cancelar</button>
+                        <button className='btn btn-primary' onClick={() => props.submit()}>{ props.textButtonSubmit || 'Enviar'}</button>
+                    </footer>
+                    : null
+                }
             </div>
         </div>
     )

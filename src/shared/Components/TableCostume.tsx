@@ -6,7 +6,7 @@ interface EntityTableCostume {
     metadata: {
         key: string;
         label: string;
-        render?: (row: any) => any;
+        render?: (row: any, position: number) => any;
     }[];
     data: any[];
     optionsSelect?: {
@@ -70,7 +70,7 @@ const TableCostume = (props: EntityTableCostume) => {
                                         </td> 
                                     : null
                                 }
-                                { props.metadata.map(rowMetadata => <td key={`${index}-${rowMetadata.key}`}>{ rowMetadata.render ? rowMetadata.render(row) : (row[rowMetadata.key] || '') }</td>) }
+                                { props.metadata.map((rowMetadata, position) => <td key={`${index}-${rowMetadata.key}`}>{ rowMetadata.render ? rowMetadata.render(row, position) : (row[rowMetadata.key] || '') }</td>) }
                             </tr>
                         )
                     }

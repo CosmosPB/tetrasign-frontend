@@ -5,12 +5,16 @@ import IconOption from './../../../assets/icons/icon-option.svg';
 import IconDownload from './../../../assets/icons/icon-download.svg';
 import IconMessage from './../../../assets/icons/icon-message.svg';
 import IconUpload from './../../../assets/icons/icon-upload.svg';
-import './ViewMain.scss';
 import { RipplesCostume } from "../../../shared/Components/RipplesCostume";
+import { ButtonCostumeFile } from "../../../shared/Components/ButtonCostumeFile";
+import './ViewMain.scss';
 
 interface ContainerProps {
     content: EntityContent;
     openModal: Function;
+
+    onChangeFile: (value: Array<File>) => void;
+    openFormConfigModal: Function;
 }
 
 export const ViewMain = (props: ContainerProps) => {
@@ -18,9 +22,14 @@ export const ViewMain = (props: ContainerProps) => {
         <div className="ViewMain">
             <section className="SectionLeft">
                 <div className="GroupActions">
-                    <RipplesCostume className="btn-primary-ripple"><button className="btn btn-primary">Escanear Carpeta</button></RipplesCostume>
-                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Cargar archivos</button></RipplesCostume>
-                    <RipplesCostume className="btn-secondary-ripple btn-opc"><button className="btn btn-secondary btn-opc"> <img src={IconOption} alt="icon-option" /> </button></RipplesCostume>
+                    <RipplesCostume className="btn-primary-ripple">
+                        <ButtonCostumeFile text="Escanear Carpeta" type="directory" className="btn btn-primary" onChange={props.onChangeFile} />
+                    </RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple">
+                        {/*<button className="btn btn-secondary">Cargar archivos</button>*/}
+                        <ButtonCostumeFile text="Cargar archivos" type="group-file" className="btn btn-secondary" onChange={props.onChangeFile} />
+                    </RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple btn-opc"><button className="btn btn-secondary btn-opc" onClick={() => props.openFormConfigModal()}> <img src={IconOption} alt="icon-option" /> </button></RipplesCostume>
                 </div>
                 <div className="DocumentsLoaded">
                     <span>Documentos cargados:</span>

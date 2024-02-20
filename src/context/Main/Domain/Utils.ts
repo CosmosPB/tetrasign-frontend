@@ -2,6 +2,7 @@ export interface EntityDocument {
     key: string;
     type: string;
     nroDocumento: string;
+    file: File;
 }
 
 export interface EntityConfigModal {

@@ -3,9 +3,13 @@ import { ViewMain } from "./Components/ViewMain";
 import { Controller } from "./Infraestructure/Controller";
 import { ModalCostume } from "../../shared/Components/ModalCostume";
 import { LoadingCostume } from "../../shared/Components/LoadingCostume";
+import { ToastContainer } from 'react-toastify';
+import { ModalConfig } from "./Components/Modal/ModalConfig";
+import { ControllerModalConfig } from "./Infraestructure/ControllerModalConfig";
 
 const View = () => {
     const controller = Controller();
+    const controllerModalConfig = ControllerModalConfig();
 
     useEffect(() => {
         controller.init();
@@ -17,7 +21,10 @@ const View = () => {
             <ViewMain
                 content={controller.content}
                 openModal={controller.openModal}
+                openFormConfigModal={() => controller.onChangeFormConfigModal(true)}
+                onChangeFile={controller.onChangeFile}
             />
+
             <ModalCostume
                 title={controller.configModal.title}
                 show={controller.configModal.show}
@@ -32,6 +39,14 @@ const View = () => {
             <LoadingCostume
                 loading={controller.loading}
             />
+            <ModalConfig
+                form={controllerModalConfig.form}
+                onChangeForm={controllerModalConfig.onChange}
+                onSubmit={controllerModalConfig.onSubmit}
+                closeModal={() => controller.onChangeFormConfigModal(false)}
+                show={controller.formConfigModal}
+            />
+            <ToastContainer />
         </>
     )
 }

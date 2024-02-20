@@ -1,0 +1,36 @@
+.TabCostume {
+    min-width: 500px;
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    display: flex;
+
+    .ContentOptions {
+        min-width: 250px;
+
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #dfdfdf;
+        
+        .item {
+            border-bottom: 1px solid #dfdfdf;
+            cursor: pointer;
+            padding: 7px;
+        }
+
+        .item:hover {
+            background-color: #f4f4f4;
+            transition: 0.5s;
+        }
+
+        .item-selected, .item-selected:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    }
+
+    .ContentChildren {
+        padding: 0 10px;
+        width: 100%;
+    }
+}

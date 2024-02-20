@@ -2,25 +2,22 @@ import { useState } from "react"
 import { EntityContent, EntityContentInit } from "../Domain/EntityContent"
 import { EntityConfigModal, EntityConfigModalInit, EntityDocument } from "../Domain/Utils";
 import IconTrash from "../../../assets/icons/icon-trash.svg";
+import { AdapterToast } from "../../../shared/Adapters/ToastMessage";
 
 export const Controller = () => {
     const [content, setContent] = useState<EntityContent>(EntityContentInit);
     const [configModal, setConfigModal] = useState<EntityConfigModal>(EntityConfigModalInit);
+    const [formConfigModal, setFormConfigigModal] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
 
     const init = () => {
         setContent({
             listDocument: [
-                { key: '1', nroDocumento: 'F010-00000001', type: 'FA' },
-                { key: '2', nroDocumento: 'F010-00000002', type: 'FA' },
-                { key: '3', nroDocumento: 'F010-00000003', type: 'FA' },
-                { key: '4', nroDocumento: 'F010-00000004', type: 'FA' },
-                { key: '5', nroDocumento: 'F010-00000005', type: 'FA' },
             ],
             metadataDocument: [
                 { key: 'type', label: 'Tipo' },
                 { key: 'nroDocumento', label: 'Nro. de documento' },
-                { key: 'actionDelete', label: '', render: (row: EntityDocument) => <img className="iconDeleteTable" src={IconTrash} alt="icon-trash"/> },
+                { key: 'actionDelete', label: '', render: (row: EntityDocument, position) => <img onClick={() => deleteFile(position)} className="iconDeleteTable" src={IconTrash} alt="icon-trash"/> },
             ],
             listMain: [
                 { key: '1', razonSocial: 'Jerson Miranda', nroDocumento: 'F010-00000001', type: 'FA', fechaEmision: '20/10/2023', fechaEnvio: '20/10/2023', estado: 'Aceptado', observacion: '' },
@@ -61,7 +58,42 @@ export const Controller = () => {
         setTimeout(() => {
             closeModal();
             setLoading(false);
+
+            AdapterToast.message("success", "Se envío de forma correcta a la SUNAT", { position: "bottom-right" });
         }, 3000)
+    }
+
+    // Functions File Temp
+    const onChangeFile = (value: Array<File>) => {
+        const formatted: Array<EntityDocument> = value.map((row, index) => ({
+            key: `${row.name}`,
+            nroDocumento: row.name,
+            type: 'FA',
+            file: row
+        }))
+
+        setContent((prev) => ({
+            ...prev,
+            listDocument: [
+                ...prev.listDocument,
+                ...formatted
+            ]
+        }))
+    }
+
+    const deleteFile = (position: number) => {
+        let temp = content.listDocument;
+        temp.splice(position, 1);
+
+        setContent((prev) => ({
+            ...prev,
+            listDocument: temp
+        }))
+    }
+
+    // Functions Form Config Modal
+    const onChangeFormConfigModal = (value: boolean) => {
+        setFormConfigigModal(() => value);
     }
 
     return ({
@@ -72,6 +104,13 @@ export const Controller = () => {
         openModal,
         closeModal,
         configModal,
-        onSubmitModal
+        onSubmitModal,
+        
+        // Functions File Temp
+        onChangeFile,
+
+        // Functions Form Config Modal
+        onChangeFormConfigModal,
+        formConfigModal
     })
 }
