@@ -18,13 +18,15 @@ const View = () => {
 
     return (
         <>
+            {/** Contener para la pantalla principal */}
             <ViewMain
                 content={controller.content}
                 openModal={controller.openModal}
-                openFormConfigModal={() => controller.onChangeFormConfigModal(true)}
+                openFormConfigModal={() => controllerModalConfig.onChangeFormConfigModal(true)}
                 onChangeFile={controller.onChangeFile}
             />
 
+            {/** Contener para Modal enviar a SUNAT */}
             <ModalCostume
                 title={controller.configModal.title}
                 show={controller.configModal.show}
@@ -36,17 +38,22 @@ const View = () => {
                     se enviará por correo el comprobante electrónico al cliente.
                 </p>
             </ModalCostume>
-            <LoadingCostume
-                loading={controller.loading}
-            />
+
+            {/** Contener para el modal de configuración */}
             <ModalConfig
                 form={controllerModalConfig.form}
                 onChangeForm={controllerModalConfig.onChange}
                 onSubmit={controllerModalConfig.onSubmit}
-                closeModal={() => controller.onChangeFormConfigModal(false)}
-                show={controller.formConfigModal}
+                closeModal={() => controllerModalConfig.onChangeFormConfigModal(false)}
+                show={controllerModalConfig.formConfigModal}
             />
+
+            {/** Contener para mostrar una pantalla de carga */}
+            <LoadingCostume loading={controller.loading} />
+
+            {/** Contener para mostrar los mensajes */}
             <ToastContainer />
+
         </>
     )
 }

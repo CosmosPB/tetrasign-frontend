@@ -7,7 +7,6 @@ import { AdapterToast } from "../../../shared/Adapters/ToastMessage";
 export const Controller = () => {
     const [content, setContent] = useState<EntityContent>(EntityContentInit);
     const [configModal, setConfigModal] = useState<EntityConfigModal>(EntityConfigModalInit);
-    const [formConfigModal, setFormConfigigModal] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
 
     const init = () => {
@@ -91,11 +90,6 @@ export const Controller = () => {
         }))
     }
 
-    // Functions Form Config Modal
-    const onChangeFormConfigModal = (value: boolean) => {
-        setFormConfigigModal(() => value);
-    }
-
     return ({
         content,
         init,
@@ -108,9 +102,5 @@ export const Controller = () => {
         
         // Functions File Temp
         onChangeFile,
-
-        // Functions Form Config Modal
-        onChangeFormConfigModal,
-        formConfigModal
     })
 }

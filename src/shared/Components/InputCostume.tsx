@@ -18,6 +18,7 @@ export const InputText = (props: InputBase) => {
             placeholder={props.label}
             name={props.name}
             onChange={(evt) => props.onChange(evt.target.name, evt.target.value)}
+            value={props.value}
         />
     )
 }

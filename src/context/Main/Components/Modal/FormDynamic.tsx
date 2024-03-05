@@ -9,12 +9,13 @@ interface ContainerProps {
 }
 
 export const FormDynamic = (props: ContainerProps) => {
+    console.log(props.form.values);
     return (
         <div className="FormDynamic">
             <div className="group-inputs">
                 {
                     props.inputs.map(row =>
-                        <div className="item-input">
+                        <div className="item-input" key={row.key}>
                             <label>{ row.label } {row.required ? <span className="required">*</span> : null}</label>
                             <InputText
                                 label={row.label}

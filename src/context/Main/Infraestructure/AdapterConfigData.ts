@@ -1,3 +1,5 @@
+import * as Yup from 'yup'
+
 export const AdapterConfigModal = {
     options: [
         { key: "generico", label: 'Configuración general' },
@@ -8,7 +10,7 @@ export const AdapterConfigModal = {
     defaultKey: 'generico',
     Form: {
         generico: [
-            { type: 'text', required: true, label: 'Party Identification', key: 'identificacion' },
+            { type: 'text', required: true, label: 'Party Identification', key: 'party_identification' },
             { type: 'text', required: true, label: 'Party Name', key: 'party_name' },
             { type: 'text', required: true, label: 'Registration Name', key: 'registration_name' },
             { type: 'text', required: true, label: 'Address Type Code', key: 'address_type_code' },
@@ -39,4 +41,15 @@ export const AdapterConfigModal = {
             { type: 'text', required: true, label: 'Despatch Advice URL', key: 'despatch_advice_url' }
         ]
     } as any
+}
+
+
+export const ValidationSchemaConfigModal = () => {
+    const arrInputs = [...AdapterConfigModal.Form.generico, ...AdapterConfigModal.Form.ruta, ...AdapterConfigModal.Form.sunat, ...AdapterConfigModal.Form.endpoint];
+    return arrInputs.reduce((prev, current) => {
+        if (current.type === 'text' && current.required)
+            Object.assign(prev, { [current.key]: Yup.string().required(`${current.label} es requerido`).nullable() })
+
+        return prev;
+    }, {} as any);
 }

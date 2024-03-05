@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ModalCostume } from "../../../../shared/Components/ModalCostume"
 import { TabCostume } from "../../../../shared/Components/TabCostume"
 import { AdapterConfigModal } from "../../Infraestructure/AdapterConfigData";
@@ -15,6 +15,11 @@ interface ContainerProps {
 
 export const ModalConfig = (props: ContainerProps) => {
     const [currentKeyTab, setCurrentKeyTab] = useState<string>(AdapterConfigModal.defaultKey);
+
+    useEffect(() => {
+        // Reiniciar la key
+        setCurrentKeyTab(AdapterConfigModal.defaultKey);
+    }, [props.show])
 
     return (
         <ModalCostume
