@@ -15,6 +15,10 @@ interface ContainerProps {
 
     onChangeFile: (value: Array<File>) => void;
     openFormConfigModal: Function;
+
+    convertXMLSign: Function;
+    onCheckCDRDocument: Function;
+    onChangeCheckedList(value: string[]): any 
 }
 
 export const ViewMain = (props: ContainerProps) => {
@@ -40,14 +44,20 @@ export const ViewMain = (props: ContainerProps) => {
                 </div>
                 <div className="GroupButtonFinal">
                 <RipplesCostume className="btn-third-ripple">
-                    <button className="btn btn-third">Convertir a XML Y Firmar</button>
+                    <button
+                        onClick={() => props.convertXMLSign()}
+                        disabled={props.content.listDocument.length === 0}
+                        className="btn btn-third"
+                    >
+                        Convertir a XML Y Firmar
+                    </button>
                 </RipplesCostume>
                 </div>
             </section>
             <section className="SectionRight">
                 <div className="GroupActions">
-                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Enviar correo <img src={IconMessage} alt="icon-message" /></button></RipplesCostume>
-                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary">Descargar CDR <img src={IconDownload} alt="icon-download" /></button></RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple"><button disabled className="btn btn-secondary">Enviar correo <img src={IconMessage} alt="icon-message" /></button></RipplesCostume>
+                    <RipplesCostume className="btn-secondary-ripple"><button className="btn btn-secondary" onClick={() => props.onCheckCDRDocument()}>Descargar CDR <img src={IconDownload} alt="icon-download" /></button></RipplesCostume>
                     <RipplesCostume className="btn-primary-ripple"><button className="btn btn-primary" onClick={() => props.openModal()}>Envíar a sunat <img src={IconUpload} alt="icon-upload" /></button></RipplesCostume>
                 </div>
                 <div className="GroupFilters">
@@ -95,6 +105,7 @@ export const ViewMain = (props: ContainerProps) => {
                             key: 'key',
                             show: true
                         }}
+                        onSelectRow={props.onChangeCheckedList}
                     />
                 </div>
             </section>

@@ -24,6 +24,9 @@ const View = () => {
                 openModal={controller.openModal}
                 openFormConfigModal={() => controllerModalConfig.onChangeFormConfigModal(true)}
                 onChangeFile={controller.onChangeFile}
+                convertXMLSign={controller.convertXMLSign}
+                onChangeCheckedList={controller.onChangeCheckedList}
+                onCheckCDRDocument={controller.onCheckCDRDocument}
             />
 
             {/** Contener para Modal enviar a SUNAT */}
@@ -31,7 +34,7 @@ const View = () => {
                 title={controller.configModal.title}
                 show={controller.configModal.show}
                 close={controller.closeModal}
-                submit={controller.onSubmitModal}
+                submit={controller.onSendSunatDocument}
             >
                 <p>
                     ¿Desea enviar los archivos seleccionados a la Sunat? Una vez sea aprobado,

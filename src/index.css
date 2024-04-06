@@ -32,10 +32,21 @@
   color: var(--primary-color);
 }
 
+.btn-secondary:disabled {
+  background-color: #ECECEC;
+  cursor: no-drop;
+}
+
 .btn-third {
   color: white;
   background-color: var(--third-color);
 }
+
+.btn-third:disabled {
+  background-color: #474d66a3;
+  cursor: no-drop;
+}
+
 html, body, #root, .ViewApp { height: 100%; }  
 body {
   margin: 0;

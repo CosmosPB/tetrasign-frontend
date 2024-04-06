@@ -30,4 +30,11 @@ export class AdapterService {
         if (extraConfig) Object.assign(config, { ...config, ...extraConfig });
         return (await axios.put(`${this.urlBase}${url}`, payload, config)).data;
     }
+
+    public async deleteData<T>(url: string, auth: boolean = false, extraConfig: object | null): Promise<T> {
+        const config: AxiosRequestConfig<any> = {};
+        if (auth) Object.assign(config, { auth: this.token });
+        if (extraConfig) Object.assign(config, { ...config, ...extraConfig });
+        return (await axios.delete(`${this.urlBase}${url}`, config)).data;
+    }
 }

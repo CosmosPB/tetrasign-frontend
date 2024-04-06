@@ -32,7 +32,6 @@ export const InputSelect = (props: InputSelectProps) => {
         <select
             style={props.style || {}}
             className={`InputSelect ${props.className || ''}`}
-            placeholder={props.label}
             name={props.name}
             onChange={(evt) => props.onChange(evt.target.name, evt.target.value)}
         >

@@ -1,3 +1,5 @@
+import { EntityResponseListDespatchService } from "./EntityResponse";
+
 export interface EntityDocument {
     key: string;
     type: string;
@@ -40,4 +42,16 @@ export interface EntityForm {
     username: string;
     password: string;
     despatch_advice_url: string;
+}
+
+export interface EntityItemDocument {
+    key: string;
+    razonSocial: string;
+    nroDocumento: string;
+    type: string;
+    fechaEmision: string;
+    fechaEnvio: string;
+    estado: string;
+    observacion: string;
+    dataComplete: EntityResponseListDespatchService;
 }

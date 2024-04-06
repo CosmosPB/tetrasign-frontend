@@ -1,4 +1,4 @@
-import { EntityDocument } from "./Utils"
+import { EntityDocument, EntityItemDocument } from "./Utils"
 
 export interface EntityContent {
     listDocument: EntityDocument[];
@@ -7,16 +7,7 @@ export interface EntityContent {
         label: string;
         render?: (row: any, position: number) => any;
     }[];
-    listMain: {
-        key: string;
-        razonSocial: string;
-        nroDocumento: string;
-        type: string;
-        fechaEmision: string;
-        fechaEnvio: string;
-        estado: string;
-        observacion: string;
-    }[];
+    listMain: EntityItemDocument[];
     metadataMain: {
         key: string;
         label: string;

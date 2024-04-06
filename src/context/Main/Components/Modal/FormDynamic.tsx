@@ -9,7 +9,7 @@ interface ContainerProps {
 }
 
 export const FormDynamic = (props: ContainerProps) => {
-    console.log(props.form.values);
+
     return (
         <div className="FormDynamic">
             <div className="group-inputs">

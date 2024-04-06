@@ -13,6 +13,7 @@ interface EntityTableCostume {
         show: boolean;
         key: string;
     };
+    onSelectRow?: (listKey: string[]) => any;
 }
 
 const TableCostume = (props: EntityTableCostume) => {
@@ -33,6 +34,7 @@ const TableCostume = (props: EntityTableCostume) => {
             findIndex === -1 ? listSelected.push(key) : listSelected.splice(findIndex, 1);
         }
         setSelectRow(() => [...listSelected]);
+        if (props.onSelectRow) props.onSelectRow(listSelected);
     }
 
     return (
