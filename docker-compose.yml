@@ -1,0 +1,11 @@
+services:
+    tetrasign:
+        build: .
+        container_name: cas-tetrasign-frontend
+        ports:
+            - "3000:80"
+        networks:
+            - cas-network
+networks:
+    cas-network:
+        driver: bridge
